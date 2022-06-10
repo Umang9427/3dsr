@@ -37,19 +37,21 @@ $(window).scroll(function () {
     $("#minnavigationbarcontainer").css('height', '50px');
     $("#maxnavigationbarcontainer").css('transition', '0.7s ease');
     $("#minnavigationbarcontainer").css('transition', '0.7s ease');
-    $("#maxnavigationbarcontainer").css('background', 'rgba(0,0,0, 0.7)');
+    $("#maxnavigationbarcontainer").css('background', 'rgba(0,0,0, 0.6)');
     $("#maxnavigationbarcontainer").css('border-bottom', '0px ');
     $("#rightnav").css('margin-top', '10px');
     $("#rightnav1").css('padding', '20px 45px 14px 45px');
     $("#rightnav2").css('padding', '20px 45px 14px 45px');
     $("#rightnav3").css('padding', '20px 45px 14px 45px');
     $("#rightnav4").css('padding', '20px 45px 14px 45px');
-    $("#rightnav").css('transition', '0.7s ease');
+    $("#rightnav").css('transition', '0.7s linear');
     $("#rightestnavh5").css('padding-top', '5px');
-    $("#rightestnavh5").css('color', 'rgb(60,60,60)');
+    $("#rightestnavh5").css('color', 'rgb(236,236,236)');
     $("#rightestnavh5").css('transition', '0.7s ease');
+    $("#rightestnavh5").css('font-size', '18px');
     $("#hamburger-3").css('top', '4px');
     $("#hamburger-3").css('transition', '0.7 ease');
+    $("#rightnav").css('font-size', '18px');
     
 	} 
 	else {
@@ -68,8 +70,10 @@ $(window).scroll(function () {
     $("#rightestnavh5").css('padding-top', '30px');
     $("#rightestnavh5").css('transition', '0.2s ease');
     $("#rightestnavh5").css('color', 'rgb(236,236,236)');
+    $("#rightestnavh5").css('font-size', '24px');
     $("#hamburger-3").css('top', '25px');
     $("#hamburger-3").css('transition', '0.2 ease');
+    $("#rightnav").css('font-size', '24px');
 	}
 });
 
@@ -79,8 +83,65 @@ $(window).scroll(function () {
 
 
 
+/* Hero Image Slider */
 
+(function ($) {
+  "use strict";
 
+  //Page cursors
 
+  document
+    .getElementsByTagName("body")[0]
+    .addEventListener("mousemove", function (n) {
+      (t.style.left = n.clientX + "px"),
+        (t.style.top = n.clientY + "px"),
+        (e.style.left = n.clientX + "px"),
+        (e.style.top = n.clientY + "px"),
+        (i.style.left = n.clientX + "px"),
+        (i.style.top = n.clientY + "px");
+    });
+  var t = document.getElementById("cursor"),
+    e = document.getElementById("cursor2"),
+    i = document.getElementById("cursor3");
+  function n(t) {
+    e.classList.add("hover"), i.classList.add("hover");
+  }
+  function s(t) {
+    e.classList.remove("hover"), i.classList.remove("hover");
+  }
+  s();
+  for (
+    var r = document.querySelectorAll(".hover-target"), a = r.length - 1;
+    a >= 0;
+    a--
+  ) {
+    o(r[a]);
+  }
+  function o(t) {
+    t.addEventListener("mouseover", n), t.addEventListener("mouseout", s);
+  }
 
+  $(document).ready(function () {
+    /* Hero Case study images */
 
+    $(".case-study-name:nth-child(1)").on("mouseenter", function () {
+      $(".case-study-name.active").removeClass("active");
+      $(".case-study-images li.show").removeClass("show");
+      $(".case-study-images li:nth-child(1)").addClass("show");
+      $(".case-study-name:nth-child(1)").addClass("active");
+    });
+    $(".case-study-name:nth-child(2)").on("mouseenter", function () {
+      $(".case-study-name.active").removeClass("active");
+      $(".case-study-images li.show").removeClass("show");
+      $(".case-study-images li:nth-child(2)").addClass("show");
+      $(".case-study-name:nth-child(2)").addClass("active");
+    });
+    $(".case-study-name:nth-child(3)").on("mouseenter", function () {
+      $(".case-study-name.active").removeClass("active");
+      $(".case-study-images li.show").removeClass("show");
+      $(".case-study-images li:nth-child(3)").addClass("show");
+      $(".case-study-name:nth-child(3)").addClass("active");
+    });
+    $(".case-study-name:nth-child(1)").trigger("mouseenter");
+  });
+})(jQuery);
